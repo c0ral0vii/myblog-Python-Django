@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+  <header class="header">
+    {% block header %}
+    {% endblock %}
+  </header>
+
+
+  <content class="content">
+    {% block content %}
+    {% endblock %}
+  </content>
+
+    <hr>
+
+  <footer class="footer">
+    <h1 class="non-commercial">Сайт создан не для коммерческого использования</h1>
+    {% block footer %}
+    {% endblock %}
+  </footer>
+</body>
+</html>
