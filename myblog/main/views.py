@@ -1,17 +1,20 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from .forms import *
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'main/home.html')
 
 
-class LoginPage(CreateView, LoginView):
-    form_class = LoginPage_Form
+class RegisterPage(CreateView):
+    form_class = RegisterUser_Form
+    template_name = 'main/register.html'
+    success_url = reverse_lazy('home')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Login page'
+        context['title'] = 'Register page'
         return context
