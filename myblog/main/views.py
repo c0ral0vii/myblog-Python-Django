@@ -10,7 +10,11 @@ from .forms import *
 
 
 def home(request):
-    return render(request, 'main/home.html')
+    return render(request, 'main/home.html', context={'title': 'homepage'})
+
+
+def profile(request):
+    pass
 
 
 class RegisterPage(CreateView):

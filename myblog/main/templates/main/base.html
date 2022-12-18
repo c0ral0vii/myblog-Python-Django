@@ -5,24 +5,32 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>{{ title }}</title>
 </head>
 <body>
   <header class="header">
         <div class="content_main">
-
-            {% if request.user.is_authenticated %}
-                <div class="user">
-                    <img src="">
-                    <a href="">{{ request.user }}</a>
-                    <a href="{% url 'logout' %}">Выход</a>
-                </div>
-            {% else %}
-                <div class="user non-reg">
-                    <a href="{% url 'login' %}">Войти</a>
-                    <a href="{% url 'register' %}">Регистрация</a>
-                </div>
-            {% endif %}
+            <div class="search">
+                <form method="get" class="search-form">
+                    <input type="text" class="search-input" placeholder="Поиск....">
+                    <button type="submit" class="submit-button">Найти</button>
+                </form>
+            </div>
+            <div class="user">
+                {% if request.user.is_authenticated %}
+                    <div class="login-user">
+                        <img src="" class="users-links-img">
+                        <a href="" class="users-links">{{ request.user }}</a>
+                        <a href="{% url 'logout' %}" class="users-links">Выход</a>
+                    </div>
+                {% else %}
+                    <div class="non-reg">
+                        <a href="{% url 'login' %}" class="users-links">Войти</a>
+                        <a href="{% url 'register' %}" class="users-links">Регистрация</a>
+                    </div>
+                {% endif %}
+            </div>
         </div>
     {% block header %}
     {% endblock %}

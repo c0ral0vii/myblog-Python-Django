@@ -1,5 +1,39 @@
+body {
+    background-color: #663399;
+    padding: 0 20px;
+    font-family: 'Roboto', sans-serif;
+}
 .header {}
 .content {}
 .footer {text-align: center}
 
 .non-commercial {}
+
+.content_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search .search-input {
+    width: 300px;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+.search .submit-button {
+    font-size: 25px;
+    background: none;
+}
+
+.user .users-links {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    margin: 0 0 0 10px;
+}
