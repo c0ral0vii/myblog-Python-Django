@@ -2,12 +2,12 @@
 
 
 {% block content %}
-    <form method="post" >
+    <form method="post" class="login">
     {% csrf_token %}
         {% for f in form %}
             <p><label class = 'form-label' for='{{ f.id_for_label }}'>{{ f.label }}:</label>{{ f }}</p>
             <div class = 'form-error'>{{ f.errors }}</div>
         {% endfor %}
-    <button type="submit">Войти</button>
+    <button type="submit" class="form-button">Войти</button>
     </form>
 {% endblock %}

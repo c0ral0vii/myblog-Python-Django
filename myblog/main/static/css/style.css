@@ -37,3 +37,20 @@ body {
     font-size: 25px;
     margin: 0 0 0 10px;
 }
+
+.form-label {
+    font-size: 25px;
+    padding: 0 15px 0 0;
+}
+
+.form-input {
+    font-size: 25px;
+    background-color: #6666CC;
+    border-radius: 10px;
+}
+
+.form-button {
+    background: none;
+    font-size: 25px;
+
+}
