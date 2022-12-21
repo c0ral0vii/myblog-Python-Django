@@ -7,14 +7,23 @@ from django.shortcuts import redirect
 
 
 from .forms import *
+from .models import *
 
 
 def home(request):
-    return render(request, 'main/home.html', context={'title': 'homepage'})
+    context = {
+        'title': 'home',
+        'profile': Profile.objects.all(),
+    }
+    return render(request, 'main/home.html', context=context)
 
 
 def profile(request):
-    pass
+    context = {
+        'title': 'profile',
+        'profile': Profile.objects.all(),
+    }
+    return render(request, 'main/profile.html', context=context)
 
 
 class RegisterPage(CreateView):
