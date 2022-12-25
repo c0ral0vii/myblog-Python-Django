@@ -54,7 +54,7 @@ class Profile(models.Model):
         instance.profile.save()
 
     def __str__(self):
-        return self.username
+        return self.user
 
     def get_absolute_url(self):
         return reverse('user', kwargs={'user_id': self.pk})

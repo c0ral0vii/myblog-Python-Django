@@ -11,10 +11,16 @@ from .models import *
 
 
 def home(request):
-    context = {
-        'title': 'home',
-        'profile': Profile.objects.all(),
-    }
+    if request.user.is_authenticated:
+        context = {
+            'title': 'home',
+            'profile': Profile.objects.filter(username=request.user),
+        }
+    else:
+        context = {
+            'title': 'home',
+        }
+
     return render(request, 'main/home.html', context=context)
 
 
