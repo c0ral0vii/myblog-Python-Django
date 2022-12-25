@@ -24,10 +24,10 @@ def home(request):
     return render(request, 'main/home.html', context=context)
 
 
-def profile(request):
+def profile(request, user):
     context = {
         'title': 'profile',
-        'profile': Profile.objects.all(),
+        'profile': Profile.objects.filter(user=request.user),
     }
     return render(request, 'main/profile.html', context=context)
 

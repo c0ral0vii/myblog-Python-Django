@@ -59,5 +59,12 @@ body {
 .form-button {
     background: none;
     font-size: 25px;
+}
 
+.profile .main-inf {
+    display: flex;
+}
+
+.profile .bio {
+    margin: 0 0 10px 20px;
 }

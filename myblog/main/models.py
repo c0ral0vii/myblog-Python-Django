@@ -39,7 +39,7 @@ class Posts(models.Model):
 
 
 class Profile(models.Model):
-    username = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     post = models.ForeignKey('Posts', on_delete=models.PROTECT, null=True, blank=True)
     avatar = models.ImageField(upload_to='profile/', default='default.png')
     bio = models.TextField()
@@ -57,5 +57,5 @@ class Profile(models.Model):
         return self.user
 
     def get_absolute_url(self):
-        return reverse('user', kwargs={'user_id': self.pk})
+        return reverse('user_', kwargs={'user_id': self.pk})
 
