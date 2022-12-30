@@ -1,5 +1,5 @@
 from django.contrib.auth import login, logout
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.views.generic import CreateView, ListView
@@ -12,9 +12,10 @@ from .models import *
 
 def home(request):
     if request.user.is_authenticated:
+        profile_link = Profile.objects.filter(user__username=request.user).values('user__username', 'avatar')
         context = {
             'title': 'home',
-            'profile': Profile.objects.filter(username=request.user),
+            'profile': profile_link,
         }
     else:
         context = {
@@ -25,9 +26,10 @@ def home(request):
 
 
 def profile(request, user):
+    profile_data = get_object_or_404(Profile, user__username=request.user)
     context = {
         'title': 'profile',
-        'profile': Profile.objects.filter(user=request.user),
+        'profile': profile_data,
     }
     return render(request, 'main/profile.html', context=context)
 

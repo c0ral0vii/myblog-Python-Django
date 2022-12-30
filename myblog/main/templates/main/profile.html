@@ -4,20 +4,16 @@
 {% block content %}
     <div class="profile">
         <div class="main-inf">
-            {% for p in profile %}
-                <img src="{{ p.avatar.root }}">
-                <h1>{{ p.user }}</h1>
-            {% endfor %}
+            <img src="{{ profile.avatar.url }}">
+            <h1>{{ profile.user }}</h1>
         </div>
         <div class="sub-inf">
             <h3>Биография: </h3>
-            {% for p in profile %}
-                {% if not p.bio %}
-                    <p class="bio">Пусто</p>
-                {% else %}
-                    <p class="bio">{{ p.bio }}</p>
-                {% endif %}
-            {% endfor %}
+            {% if not profile.bio %}
+                <p class="bio">Пусто</p>
+            {% else %}
+                <p class="bio">{{ profile.bio }}</p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

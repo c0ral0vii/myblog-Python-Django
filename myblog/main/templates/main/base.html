@@ -21,11 +21,9 @@
             <div class="user">
                 {% if request.user.is_authenticated %}
                     <div class="login-user">
-                    {% for p in profile %}
-                        <img src="{{ p.avatar.root }}" class="users-links-img">
-                        <a href="{% url 'profile' p.user %}" class="users-links">{{ request.user }}</a>
+                        <img src="{{ profile.avatar.root }}" class="users-links-img">
+                        <a href="{% url 'profile' user=request.user %}" class="users-links">{{ request.user }}</a>
                         <a href="{% url 'logout' %}" class="users-links">Выйти</a>
-                    {% endfor %}
                     </div>
                 {% else %}
                     <div class="non-reg">
